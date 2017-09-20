@@ -1,0 +1,9 @@
+{
+  "MENU.MAIN": "Inicio",
+  "MENU.SIGNIN": "Login",
+  "MENU.SIGNUP": "Registro",
+  "MENU.LOGOUT": "Salir",
+  "MENU.MAIN": "App",
+
+  "BUTTON.SIGNUP": "Crear mi cuenta"
+}

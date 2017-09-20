@@ -1,0 +1,146 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+
+@for $i from 0 through 200 {
+  .m-t-#{$i} {
+    margin-top: #{$i}px;
+  }
+}
+@for $i from 0 through 200 {
+  .m-b-#{$i} {
+    margin-bottom: #{$i}px;
+  }
+}
+@for $i from 0 through 200 {
+  .m-l-#{$i} {
+    margin-left: #{$i}px;
+  }
+}
+@for $i from 0 through 200 {
+  .m-r-#{$i} {
+    margin-right: #{$i}px;
+  }
+}
+@for $i from 0 through 200 {
+  .m-#{$i} {
+    margin: #{$i}px;
+  }
+}
+@for $i from 0 through 200 {
+  .p-#{$i} {
+    padding: #{$i}px;
+  }
+}
+@for $i from 0 through 200 {
+  .p-t-#{$i} {
+    padding-top: #{$i}px;
+  }
+}
+@for $i from 0 through 200 {
+  .p-l-#{$i} {
+    padding-left: #{$i}px;
+  }
+}
+@for $i from 0 through 200 {
+  .p-r-#{$i} {
+    padding-right: #{$i}px;
+  }
+}
+@for $i from 0 through 200 {
+  .p-b-#{$i} {
+    padding-bottom: #{$i}px;
+  }
+}
+
+@for $i from 10 through 100 {
+  .s-y-#{$i}{
+    overflow-y : scroll;
+    height: #{$i}vh;
+  }
+}
+
+@for $i from 10 through 400 {
+  .height-#{$i}{
+    height: #{$i}px;
+  }
+}
+
+@for $i from 12 through 92 {
+  .font-#{$i}{
+    font-size: #{$i}px;
+  }
+}
+
+.f-r{
+  float: right;;
+}
+.font-bold {
+  font-weight: bold;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.clicklable {
+  cursor: pointer;
+}
+.relative {
+  position: relative;
+}
+.fixed {
+  position: fixed;
+}
+.display-n {
+  display: none !important;
+}
+.rounded {
+  border: 1px dotted black;
+}
+.h-100 {
+  min-height: -webkit-calc(100vh - 47px);
+  min-height: -moz-calc(100vh - 47px);
+  min-height: calc(100vh - 47px);
+}
+.center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

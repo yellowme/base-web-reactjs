@@ -1,0 +1,14 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the lading page.
+// -----------------------------------------------------------------------------
+
+.landing {
+
+  .body {
+    background-color: $white-bone;
+    min-height: -webkit-calc(100vh - #{$header-height});
+    min-height: -moz-calc(100vh - #{$header-height});
+    min-height: calc(100vh - #{$header-height});
+  }
+
+}

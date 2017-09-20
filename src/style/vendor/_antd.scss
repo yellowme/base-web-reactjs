@@ -1,0 +1,11 @@
+.ant-layout-header {
+  background-color: $white-clear;
+}
+
+.ant-menu {
+  line-height: -webkit-calc(#{$header-height} - 2px);
+  line-height: -moz-calc(#{$header-height} - 2px);
+  line-height: calc(#{$header-height} - 2px);
+  border-bottom: 1px solid $white-clear;
+  background-color: $white-clear;
+}
