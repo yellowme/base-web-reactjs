@@ -29,6 +29,10 @@ More info in: [https://github.com/mars/create-react-app-buildpack#environment-va
 
 APP should be available at http://localhost:3000
 
+# REDUX #
+
+Make a merge with branch redux.
+
 # FONTCUSTOM #
 For compile svg assets.
 
