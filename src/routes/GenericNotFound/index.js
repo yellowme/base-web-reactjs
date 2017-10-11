@@ -1,6 +1,6 @@
 import GenericNotFound from 'components/GenericNotFound';
 
-module.exports = {
+export default {
   path: '/*',
   getComponent(nextState, cb) {
     require.ensure([], (require) => {

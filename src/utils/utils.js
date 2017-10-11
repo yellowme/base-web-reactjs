@@ -1,19 +1,11 @@
-export function formatCurrency(number, currency) {
+export const formatCurrency = (number, currency) => {
   if (!currency) { currency = 'MXN'; }
-  let amount = new Intl.NumberFormat('en-US', {style: 'currency', currency}).format(number);
+  const amount = new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(number);
+
   return `${amount}`;
-}
+};
+export const objectToArray = (object) => Object.keys(object).map((key) => [ object[ key ] ]);
 
-export function objectToArray(object) {
-  return Object.keys(object).map(function(key) {
-    return [ object[ key ] ];
-  });
-}
+export const isEmpty = (object) => object === undefined || Object.keys(object).length === 0;
 
-export function isEmpty(object) {
-  return object === undefined || Object.keys(object).length === 0;
-}
-
-export function isEmptyArray(array) {
-  return !Array.isArray(array) || !array.length;
-}
+export const isEmptyArray = (array) => !Array.isArray(array) || !array.length;

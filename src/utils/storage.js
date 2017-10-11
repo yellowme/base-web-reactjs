@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 
   setJsonObject(key, object) {
     localStorage.setItem(key, JSON.stringify(object));
