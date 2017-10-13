@@ -1,6 +1,6 @@
 import Api from './Api';
 
-module.exports = {
+export default {
 
   create(data) {
     return Api.post('session', data);

@@ -2,7 +2,7 @@ import auth from './auth.js';
 import { findOption, hasPermissions } from 'helpers/menuHelper';
 import { ROUTES_MAIN, ROUTES_LANDING } from './constants';
 
-module.exports = {
+export default {
 
   redirectToDashboard(nextState, replace, callback) {
     if (auth.loggedIn()) {

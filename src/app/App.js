@@ -11,8 +11,10 @@ const locales = {
 };
 
 class App extends React.Component {
-
-  state = {initDone: false}
+  constructor(props) {
+    super(props);
+    this.state = { initDone: false };
+  }
 
   componentDidMount() {
     this.loadLocales();
@@ -21,7 +23,7 @@ class App extends React.Component {
   loadLocales() {
     intl.init({ currentLocale: 'es-MX', locales })
     .then(() => {
-      this.setState({initDone: true});
+      this.setState({ initDone: true });
     });
   }
 

@@ -1,6 +1,6 @@
 import Api from './Api';
 
-module.exports = {
+export default {
 
   register(user) {
     return Api.post('user/register/', user);

@@ -1,7 +1,7 @@
 import ServerMaintenance from 'components/ServerMaintenance';
 import { ROUTES_GENERAL } from 'utils/constants';
 
-module.exports = {
+export default {
   path: ROUTES_GENERAL.MAINTENANCE.path,
   getComponent(nextState, cb) {
     require.ensure([], (require) => {
