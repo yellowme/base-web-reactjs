@@ -22,7 +22,7 @@ const checkStatus = (response) => {
   if (response.status === 401) {
     auth.logout();
   }
-  return Promise.reject(response);
+  return response.json().then(err => {throw err;});
 };
 
 const parseJSON = (response) => {
