@@ -33,6 +33,10 @@ APP should be available at http://localhost:3000
 
 Make a merge with branch redux.
 
+# SAGAS #
+
+Make a merge with branch sagas, this already contains redux beacuase is necesary.
+
 # FONTCUSTOM #
 For compile svg assets.
 
