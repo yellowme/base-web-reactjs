@@ -1,4 +1,5 @@
 import React from 'react';
+import 'babel-polyfill';
 import ReactDOM from 'react-dom';
 import { Router, browserHistory } from 'react-router';
 import { LocaleProvider } from 'antd';
@@ -7,8 +8,10 @@ import routes from './routes/routes';
 
 // redux
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import appReducers from './store/appReducers';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from 'store/rootSaga';
 
 let onUpdateRouter = () => {
   window.scrollTo(0, 0);
@@ -22,9 +25,14 @@ const Root = ({store}) => (
     </Provider>
 );
 
+const sagaMiddleware = createSagaMiddleware();
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
   appReducers, /* preloadedState, */
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeEnhancers(applyMiddleware(sagaMiddleware)),
 );
+
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(<Root store={store} />, document.getElementById('root'));
