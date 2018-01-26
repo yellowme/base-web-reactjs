@@ -37,6 +37,10 @@ Make a merge with branch redux.
 
 Make a merge with branch sagas, this already contains redux beacuase is necesary.
 
+# SAGAS #
+
+Make a merge with branch firebase, this already have firebase integration for Login, Signup, and password recovery, and use Database from Firebase.
+
 # FONTCUSTOM #
 For compile svg assets.
 
