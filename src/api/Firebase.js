@@ -17,15 +17,4 @@ const config = {
   messagingSenderId: MESSAGING_SENDER_ID,
 };
 
-firebase.initializeApp(config);
-
-module.exports = {
-
-  load(data, cb) {
-    const nameRef = firebase.database().ref().child(data);
-    nameRef.on('value', snapshot => {
-      cb(snapshot.val());
-    });
-  },
-
-};
+export const Firebase = firebase.initializeApp(config);

@@ -1,45 +1,48 @@
 import { browserHistory } from 'react-router';
-import Storage from 'utils/storage';
-import { ROUTES_LANDING, ROUTES_GENERAL, STORAGE_KEY_TOKEN, STORAGE_KEY_USER } from 'utils/constants';
-import SessionService from 'api/SessionService';
-import UserService from 'api/UserService';
+import { Firebase }       from 'api/Firebase';
+import { ROUTES_LANDING, ROUTES_GENERAL, DATABSE_ENTITY_USERS } from 'utils/constants';
 
 class Auth {
 
-  login(values) {
-    return SessionService.create(values)
-    .then(result => {
-      Storage.setJsonObject(STORAGE_KEY_TOKEN, result.data);
-      return this.loadCurrentUser();
+
+  register(data) {
+    let user;
+    return Firebase.auth().createUserWithEmailAndPassword(data.email, data.password).then(response => {
+      user = response;
+      let ref = Firebase.database().ref(DATABSE_ENTITY_USERS);
+      ref.push({
+        uid: user.uid,
+        name: data.name,
+        email: user.email,
+      });
+      return Firebase.auth().currentUser.sendEmailVerification();
     });
   }
 
+  login(data) {
+    return Firebase.auth().signInWithEmailAndPassword(data.email, data.password);
+  }
+
+  recovery(email) {
+    return Firebase.auth().sendPasswordResetEmail(email);
+  }
+
   loadCurrentUser() {
-    return UserService.current()
-    .then(user => {
-      Storage.setJsonObject(STORAGE_KEY_USER, user);
-      return user;
-    }).catch(err => {
-      this.handdleErrorNetwork(err);
+    return new Promise((resolve, reject) => {
+      Firebase.auth().onAuthStateChanged(user => {
+        resolve();
+      });
     });
   }
 
   logout() {
-    Storage.removeJsobObject(STORAGE_KEY_TOKEN);
-    Storage.removeJsobObject(STORAGE_KEY_USER);
-    browserHistory.push(ROUTES_LANDING.HOME.path);
-  }
-
-  getToken() {
-    return Storage.getJsonObject(STORAGE_KEY_TOKEN).token;
-  }
-
-  getUser() {
-    return Storage.getJsonObject(STORAGE_KEY_USER);
+    Firebase.auth().signOut().then(() => {
+      browserHistory.push(ROUTES_LANDING.HOME.path);
+    });
   }
 
   loggedIn() {
-    return Storage.getJsonObject(STORAGE_KEY_TOKEN) && !!this.getToken();
+    return !!Firebase.auth().currentUser;
   }
 
   handdleErrorNetwork(err) {

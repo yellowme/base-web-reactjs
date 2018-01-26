@@ -3,8 +3,7 @@ const env = runtimeEnv();
 export const APP_VERSION = '0.0.1';
 export const API_KEY_BUGSNAG = env.REACT_APP_API_KEY_BUGSNAG;
 
-export const STORAGE_KEY_TOKEN = 'app_token';
-export const STORAGE_KEY_USER = 'app_user';
+export const DATABSE_ENTITY_USERS = 'users';
 
 export const ROUTES_LANDING = {
   HOME: {
@@ -44,6 +43,8 @@ export const ROUTES_MAIN = {
 export const ROUTES_GENERAL = {
   MAINTENANCE: {
     path: '/maintenance',
-    name: 'Mantenimiento',
+  },
+  RECOVERY: {
+    path: '/recovery',
   },
 };

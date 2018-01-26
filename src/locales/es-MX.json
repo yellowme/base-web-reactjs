@@ -7,6 +7,26 @@
     "MAIN": "App"
   },
   "BUTTON": {
-    "SIGNUP": "Crear mi cuenta"
+    "SIGNUP": "Crear mi cuenta",
+    "LOGIN": "Login",
+    "REGISTER": "Registro",
+    "PASSWORD_RECOVERY": "Recuperar contraseña",
+    "REQUEST": "Solicitar"
+  },
+  "LABEL": {
+    "NAME": "Nombre",
+    "EMAIL": "Email",
+    "PASSWORD": "Contraseña",
+    "PASSWORD2": "Confirma Contraseña"
+  },
+  "ERROR": {
+    "PASSWORD_NOT_EQUALS": "Las contraseñas no son iguales",
+    "WRONG_EMAIl" : "Email o Contraseña incorrecta"
+  },
+  "SIGNUP": {
+    "TITLE": "Registro"
+  },
+  "RECOVERY": {
+    "TITLE": "Recuperar contraseña"
   }
 }

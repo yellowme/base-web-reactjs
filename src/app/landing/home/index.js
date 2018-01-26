@@ -1,6 +1,6 @@
 import React              from 'react';
 import intl               from 'react-intl-universal';
-import Firebase           from 'api/Firebase';
+import { Firebase }       from 'api/Firebase';
 import { Row, Col }       from 'antd';
 import { Link }           from 'react-router';
 import { ROUTES_LANDING } from 'utils/constants';
@@ -13,9 +13,11 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    Firebase.load('name', (data) => {
-      this.setState({ name: data });
+    const nameRef = Firebase.database().ref().child('name');
+    nameRef.on('value', snapshot => {
+      this.setState({ name: snapshot.val() });
     });
+
   }
 
   render() {
